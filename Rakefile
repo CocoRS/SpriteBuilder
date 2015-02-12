@@ -116,7 +116,7 @@ task :test => ["build:tests", :build_requirements] do
 end
 
 desc "Build SpriteBuilder distribution - requires a version number VERSION=<semantic version>"
-task :package => ["Build", :test, "build:generated", :build_requirements] do
+task :package => ["Build", "build:generated", :build_requirements] do
     unless ENV["VERSION"]
         fail "Version number not passed - set one with `VERSION=<semantic version> rake package` on the commandline"
     end
