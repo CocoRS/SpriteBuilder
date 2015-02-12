@@ -2,9 +2,13 @@ checkout:
     post:
         - git submodule update --init --recursive
 
-test:
+dependencies:
     override:
         - rake package
+test:
+    override:
+        - rake test
+
 
 general:
     branches:
