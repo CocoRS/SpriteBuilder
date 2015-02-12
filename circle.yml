@@ -1,0 +1,21 @@
+dependencies:
+    pre:
+        - git submodule update --init --recursive
+    override:
+        - VERSION=$VERSION rake package
+
+test:
+    override:
+        - true #we are running tests in the package command
+
+general:
+    branches:
+        only:
+            - master
+            - develop
+            - experimental/circleciSign
+    artifacts:
+        - Build/SpriteBuilder.app
+        - Build/SpriteBuilder.app.dSYM
+        - Build/SpriteBuilder.xcarchive
+
